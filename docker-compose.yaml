@@ -1,0 +1,15 @@
+services:
+  redis:
+    image: redis/redis-stack
+    restart: always
+    ports:
+      - "6379:6379"
+
+
+  cassandra:
+    image: cassandra:latest
+    ports:
+      - 9042:9042
+    volumes:
+      - ./airflow_files/cassandra_data:/bitnami
+      - ./airflow_files/cassandra_data_db:/var/lib/cassandra
